@@ -1,0 +1,163 @@
+[
+  {
+    "slug": "company-profile-website",
+    "title": "iCare Insurance — Company Profile Website",
+    "category": "Web Development / Company Website",
+    "type": "Web Development",
+    "summary": "Designed and developed a modern corporate website for an insurance company, making company information, products, and customer support clearly accessible.",
+    "description": "Designed and developed a modern corporate website for an insurance company, featuring company overview, financial statements, insurance products, and customer support services. The site needed to present complex information clearly while maintaining a trustworthy, professional image.",
+    "role": [
+      "UX/UI Design",
+      "Frontend Development",
+      "Responsive Implementation",
+      "Deployment"
+    ],
+    "tags": [
+      "Next.js",
+      "TypeScript",
+      "React.js",
+      "Mantine",
+      "Figma",
+      "Vercel"
+    ],
+    "links": [
+      {
+        "name": "Website",
+        "icon": "Globe",
+        "href": "https://corporate-website-demo.vercel.app/"
+      },
+      {
+        "name": "Figma",
+        "icon": "Figma",
+        "href": "https://www.figma.com/design/dkDXSLaJ89IVuw517sbyfr/-DRAFT--iCare-Insurance?node-id=113-398&t=4GBUnDg5IaeQkgn3-1"
+      }
+    ],
+    "image": "/project-thumbnail/company-website.jpg",
+    "gallery": [
+      "/project-gallery/ici/Slice 1.jpg",
+      "/project-gallery/ici/Slice 2.jpg",
+      "/project-gallery/ici/Slice 3.jpg",
+      "/project-gallery/ici/Slice 4.jpg",
+      "/project-gallery/ici/Slice 5.jpg",
+      "/project-gallery/ici/Slice 6.jpg",
+      "/project-gallery/ici/Slice 7.jpg"
+    ],
+    "problem": "The insurance company needed to present many types of information — company overview, insurance products, financial statements, claims, and customer support — while still feeling clear, trustworthy, and easy to navigate for everyday users.",
+    "solution": [
+      "Clear top-level navigation structure organizing content by audience need",
+      "Information architecture separating product categories from company information",
+      "Clean corporate visual style with consistent typography and color",
+      "Responsive layout for desktop and mobile users",
+      "Dedicated product category pages with easy-to-scan details",
+      "Customer support access points throughout the site",
+      "Footer link grouping for quick reference"
+    ],
+    "process": [
+      "Information architecture planning",
+      "Wireframe and layout design in Figma",
+      "Visual UI design and component system",
+      "Frontend implementation with Next.js and Mantine",
+      "Responsive testing across breakpoints",
+      "Deployment to Vercel"
+    ],
+    "outcome": [
+      "Created a more professional and trustworthy online presence for the company",
+      "Helped users access insurance product information more easily",
+      "Improved content organization for a content-heavy corporate website",
+      "Delivered a production-ready site with clean, maintainable code"
+    ],
+    "isDemo": true,
+    "demoNote": "This is a demo project. The website and all content shown here were built during my time at iCare Insurance as an internal/unreleased work product. It is displayed here solely as a portfolio reference and does not represent any currently active or publicly available service."
+  },
+  {
+    "slug": "whale-services-website",
+    "title": "Whale Services — Company Website",
+    "category": "Web Design / Company Website",
+    "type": "Web Design",
+    "summary": "Designed a clean, modern company profile website for Whale Services Co., Ltd., matching their brand identity and existing deployment setup.",
+    "description": "Designed a company profile website for Whale Services Co., Ltd. using Canva (to align with existing deployment and domain). The project focused on delivering a clean, on-brand website that communicated the company's services clearly.",
+    "role": [
+      "UX/UI Design",
+      "Visual Design",
+      "Prototype"
+    ],
+    "tags": [
+      "Figma",
+      "Canva"
+    ],
+    "links": [
+      {
+        "name": "Website",
+        "icon": "Globe",
+        "href": "https://whale.services/"
+      },
+      {
+        "name": "Figma",
+        "icon": "Figma",
+        "href": "https://www.figma.com/design/OTNRCtR5JQcDuIyjt0dXNE/Whale-Service?node-id=0-1&t=zNEidpB4Sa7OyIBA-1"
+      }
+    ],
+    "image": "/project-thumbnail/whale-services.jpg",
+    "gallery": [
+      "/project-gallery/whale-services/Slice 1.jpg",
+      "/project-gallery/whale-services/Slice 2.jpg",
+      "/project-gallery/whale-services/Slice 3.jpg",
+      "/project-gallery/whale-services/Slice 4.jpg",
+      "/project-gallery/whale-services/Slice 5.jpg",
+      "/project-gallery/whale-services/Slice 6.jpg"
+    ],
+    "problem": "Whale Services needed a company website that clearly presented their services and established a professional online presence, while working within their existing deployment and domain setup.",
+    "solution": [
+      "Clean, modern layout aligned with company brand identity",
+      "Clear service presentation with concise messaging",
+      "Designed in Figma first for review, then executed in Canva for compatibility",
+      "Simple navigation structure suitable for a small business website"
+    ],
+    "process": [
+      "Brand direction and reference gathering",
+      "Wireframe and layout design in Figma",
+      "Visual design with brand-consistent colors and typography",
+      "Execution in Canva to match the client's existing deployment environment"
+    ],
+    "outcome": [
+      "Delivered a clean company website that aligned with the client's brand",
+      "Helped the client establish a more professional online presence",
+      "Worked within client constraints to deliver a practical, usable result"
+    ],
+    "isDemo": false
+  },
+  {
+    "slug": "baac-astafffs",
+    "title": "BAAC Astaffs",
+    "category": "Mobile Application",
+    "type": "Mobile Application Design & Development",
+    "summary": "Employee self service mobile application for employee. Design using Figma and develop using Flutter and .NET Core.",
+    "description": "Employee self service mobile application for employee. Design using Figma and develop using Flutter and .NET Core.",
+    "role": [
+      "UX/UI Designer",
+      "Developer"
+    ],
+    "tags": [
+      "Flutter",
+      "Dart",
+      "C#",
+      ".NET Core",
+      "Figma"
+    ],
+    "links": [
+      {
+        "name": "Google Play Store",
+        "icon": "Globe",
+        "href": "https://play.google.com/store/apps/details?id=tech.baac.hrit.baacastaffs&hl=th"
+      }
+    ],
+    "image": "/project-thumbnail/astaffs.jpg",
+    "gallery": [
+      "/project-thumbnail/astaffs.jpg"
+    ],
+    "solution": [],
+    "process": [],
+    "outcome": [],
+    "isDemo": false
+  }
+]
