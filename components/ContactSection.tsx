@@ -1,17 +1,18 @@
 "use client";
 
 import React from "react";
-import { Mail, MessageSquareCode, Phone } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolio-data";
 
 export default function ContactSection() {
   const contactLinks = [
     {
       name: "Fastwork",
-      label: "Fastwork Profile (Hire me)",
+      label: "Fastwork Profile",
       href: PERSONAL_INFO.fastworkUrl,
       icon: (
-        <MessageSquareCode className="w-5 h-5 text-[#65a30d]" />
+        <Image src="/fastwork.svg" alt="Fastwork" width={20} height={20} />
       ),
     },
     {
