@@ -4,8 +4,12 @@ import React from "react";
 import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolio-data";
+import { useLanguage } from "@/context/LanguageContext";
+import { UI_TRANSLATIONS } from "@/data/translations";
 
 export default function ContactSection() {
+  const { language } = useLanguage();
+  const t = UI_TRANSLATIONS[language];
   const contactLinks = [
     {
       name: "Fastwork",
@@ -59,11 +63,11 @@ export default function ContactSection() {
         {/* Left Heading */}
         <div className="flex flex-col justify-center space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight tracking-tight">
-            Ready to start your <br />
-            <span className="text-[#65a30d]">next project?</span>
+            {t.contact.readyTitle} <br />
+            <span className="text-[#65a30d]">{t.contact.nextProject}</span>
           </h2>
           <p className="text-zinc-600 text-lg max-w-sm leading-relaxed">
-            Let&apos;s build something scalable, performant, and beautiful together.
+            {t.contact.subtitle}
           </p>
         </div>
 

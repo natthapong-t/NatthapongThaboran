@@ -3,23 +3,27 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { PROJECTS } from "@/data/portfolio-data";
+import { useLanguage } from "@/context/LanguageContext";
+import { getLocalizedProjects, UI_TRANSLATIONS } from "@/data/translations";
 
 export default function ProjectsSection() {
+  const { language } = useLanguage();
+  const projects = getLocalizedProjects(language);
+  const t = UI_TRANSLATIONS[language];
+
   return (
     <section id="projects">
       {/* Header */}
       <div className="flex items-center justify-between mb-6 px-2 flex-wrap gap-4">
         <div>
           <h2 className="text-3xl font-bold text-zinc-900 mb-1 tracking-tight">
-            Featured Projects
+            {t.projects.title}
           </h2>
           <p className="text-zinc-500 text-sm mt-1">
-            A collection of projects I&apos;ve worked on.{" "}
+            {t.projects.subtitle}{" "}
             <span className="font-bold">
-              See{" "}
-              <Link href="/projects" className="text-[#65a30d] hover:underline">
-                all projects
+              <Link href="/projects" className="text-[#65a30d] hover:underline ml-1">
+                {t.projects.seeAll}
               </Link>
             </span>
           </p>
@@ -28,7 +32,7 @@ export default function ProjectsSection() {
 
       {/* Grid of Projects */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {PROJECTS.map((project) => (
+        {projects.map((project) => (
           <Link
             key={project.slug}
             href={`/projects/${project.slug}`}
@@ -69,7 +73,7 @@ export default function ProjectsSection() {
                   <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border backdrop-blur-md w-fit bg-[#65a30d]/10 border-[#65a30d]/20">
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-[#65a30d]"></span>
                     <span className="text-xs font-mono font-medium text-[#65a30d]">
-                      {project.statusBadge || "Live"}
+                      {project.statusBadge || (language === "th" ? "ใช้งานจริง" : "Live")}
                     </span>
                   </span>
 

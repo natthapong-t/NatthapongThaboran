@@ -3,12 +3,16 @@
 import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
-import { EXPERIENCES } from "@/data/portfolio-data";
+import { useLanguage } from "@/context/LanguageContext";
+import { getLocalizedExperiences, UI_TRANSLATIONS } from "@/data/translations";
 
 export default function ExperienceSection() {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
+  const { language } = useLanguage();
+  const experiences = getLocalizedExperiences(language);
+  const t = UI_TRANSLATIONS[language];
 
   const checkScroll = () => {
     if (!scrollerRef.current) return;
@@ -46,13 +50,14 @@ export default function ExperienceSection() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6 px-2 flex-wrap gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-zinc-900 mb-1 tracking-tight">Experience</h2>
+          <h2 className="text-3xl font-bold text-zinc-900 mb-1 tracking-tight">
+            {t.work.title}
+          </h2>
           <p className="text-zinc-500 text-sm mt-1">
-            A track record of high-performance engineering &amp; design.{" "}
+            {t.work.subtitle}{" "}
             <span className="font-bold">
-              See{" "}
-              <Link href="/experiences" className="text-[#65a30d] hover:underline">
-                all experiences
+              <Link href="/experiences" className="text-[#65a30d] hover:underline ml-1">
+                {t.work.viewAll}
               </Link>
             </span>
           </p>
@@ -83,7 +88,7 @@ export default function ExperienceSection() {
         ref={scrollerRef}
         className="flex gap-4 sm:gap-6 overflow-x-auto scroll-hide snap-x snap-mandatory pb-4 pt-1"
       >
-        {EXPERIENCES.map((job, index) => (
+        {experiences.map((job, index) => (
           <div
             key={index}
             className="w-[calc(100vw-2rem)] max-w-[420px] sm:max-w-none sm:w-[440px] lg:w-[480px] shrink-0 snap-start"
@@ -108,7 +113,7 @@ export default function ExperienceSection() {
                         : "text-zinc-500 bg-zinc-100 border border-zinc-200"
                     }`}
                   >
-                    {job.date}
+                    {job.isCurrent ? t.work.current : job.date}
                   </span>
                 </div>
 

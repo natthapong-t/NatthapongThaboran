@@ -4,10 +4,15 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X, ArrowUpRight, ChevronRight } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolio-data";
+import { useLanguage } from "@/context/LanguageContext";
+import { getLocalizedPersonalInfo, UI_TRANSLATIONS } from "@/data/translations";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { language, setLanguage } = useLanguage();
+  const info = getLocalizedPersonalInfo(language);
+  const t = UI_TRANSLATIONS[language];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,11 +23,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/#" },
-    { name: "Work", href: "/#work" },
-    { name: "Stack", href: "/#stack" },
-    { name: "Projects", href: "/#projects" },
-    { name: "Contact", href: "/#contact" },
+    { name: t.nav.home, href: "/#" },
+    { name: t.nav.work, href: "/#work" },
+    { name: t.nav.stack, href: "/#stack" },
+    { name: t.nav.projects, href: "/#projects" },
+    { name: t.nav.contact, href: "/#contact" },
   ];
 
   return (
@@ -42,7 +47,10 @@ export default function Navbar() {
             />
           </div>
           <span className="font-bold text-base sm:text-lg tracking-tight text-zinc-800">
-            {PERSONAL_INFO.name.split(" ")[0]}&apos;s Portfolio
+            {language === "th" ? "ณัฐพงษ์" : info.name.split(" ")[0]}
+            <span className="font-normal text-zinc-500 text-sm sm:text-base ml-1">
+              {t.nav.portfolioSuffix}
+            </span>
           </span>
         </Link>
 
@@ -50,7 +58,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-6 bg-zinc-100/90 backdrop-blur-md px-6 py-2 rounded-full border border-zinc-200">
           {navLinks.map((link) => (
             <Link
-              key={link.name}
+              key={link.href}
               href={link.href}
               className="text-sm font-medium text-zinc-600 hover:text-[#65a30d] transition-colors"
             >
@@ -59,16 +67,42 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Right Action: Hire CTA */}
-        <div className="flex items-center gap-3">
+        {/* Right Action: Language Toggle & Hire CTA */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          {/* Language Toggle Switch */}
+          <div className="flex items-center bg-zinc-100/90 backdrop-blur-md p-0.5 rounded-xl border border-zinc-200 text-xs font-semibold">
+            <button
+              onClick={() => setLanguage("th")}
+              className={`px-2 sm:px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+                language === "th"
+                  ? "bg-white text-zinc-900 shadow-2xs font-bold"
+                  : "text-zinc-500 hover:text-zinc-800"
+              }`}
+              aria-label="Switch to Thai"
+            >
+              TH
+            </button>
+            <button
+              onClick={() => setLanguage("en")}
+              className={`px-2 sm:px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
+                language === "en"
+                  ? "bg-white text-zinc-900 shadow-2xs font-bold"
+                  : "text-zinc-500 hover:text-zinc-800"
+              }`}
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+          </div>
+
           {/* Hire Button */}
           <a
             href={PERSONAL_INFO.fastworkUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#65a30d] hover:bg-[#52840a] text-white font-bold text-xs sm:text-sm px-4 sm:px-5 py-2 rounded-xl transition-colors shadow-2xs cursor-pointer inline-flex items-center gap-1.5"
+            className="bg-[#65a30d] hover:bg-[#52840a] text-white font-bold text-xs sm:text-sm px-3.5 sm:px-5 py-2 rounded-xl transition-colors shadow-2xs cursor-pointer inline-flex items-center gap-1.5"
           >
-            <span>Hire on Fastwork</span>
+            <span>{t.nav.hire}</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
 
@@ -88,7 +122,7 @@ export default function Navbar() {
         <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-zinc-200 px-6 py-6 flex flex-col gap-3 shadow-xl transition-all duration-300">
           {navLinks.map((link) => (
             <Link
-              key={link.name}
+              key={link.href}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
               className="flex items-center justify-between text-base font-medium text-zinc-700 hover:text-[#65a30d] py-2 border-b border-zinc-100 last:border-none"
@@ -98,13 +132,40 @@ export default function Navbar() {
             </Link>
           ))}
 
+          {/* Mobile Language Row */}
+          <div className="flex items-center justify-between py-2 border-b border-zinc-100">
+            <span className="text-sm font-medium text-zinc-600">Language / ภาษา</span>
+            <div className="flex items-center bg-zinc-100 p-0.5 rounded-xl border border-zinc-200 text-xs font-semibold">
+              <button
+                onClick={() => setLanguage("th")}
+                className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                  language === "th"
+                    ? "bg-white text-zinc-900 shadow-2xs font-bold"
+                    : "text-zinc-500 hover:text-zinc-800"
+                }`}
+              >
+                TH
+              </button>
+              <button
+                onClick={() => setLanguage("en")}
+                className={`px-3 py-1 rounded-lg transition-all cursor-pointer ${
+                  language === "en"
+                    ? "bg-white text-zinc-900 shadow-2xs font-bold"
+                    : "text-zinc-500 hover:text-zinc-800"
+                }`}
+              >
+                EN
+              </button>
+            </div>
+          </div>
+
           <a
             href={PERSONAL_INFO.fastworkUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 text-center bg-[#65a30d] hover:bg-[#52840a] text-white font-bold py-2.5 rounded-xl transition-colors text-sm"
           >
-            Hire on Fastwork
+            {t.nav.hire}
           </a>
         </div>
       )}

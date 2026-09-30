@@ -3,19 +3,28 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { PROJECTS } from "@/data/portfolio-data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/context/LanguageContext";
+import { getLocalizedProjects, UI_TRANSLATIONS } from "@/data/translations";
 
 export default function ProjectsPage() {
   const [activeFilter, setActiveFilter] = useState<string>("All");
+  const { language } = useLanguage();
+  const projects = getLocalizedProjects(language);
+  const t = UI_TRANSLATIONS[language];
 
-  const categories = ["All", "Web Development", "Web Design", "Mobile Application"];
+  const categories = [
+    { key: "All", label: t.projects.filterAll },
+    { key: "Web Development", label: t.projects.filterWebDev },
+    { key: "Web Design", label: t.projects.filterWebDesign },
+    { key: "Mobile Application", label: t.projects.filterMobileApp },
+  ];
 
   const filteredProjects =
     activeFilter === "All"
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.category === activeFilter);
+      ? projects
+      : projects.filter((p) => p.category === activeFilter);
 
   return (
     <div className="relative min-h-screen flex flex-col font-sans overflow-x-hidden bg-[#fbfbfb]">
@@ -29,18 +38,27 @@ export default function ProjectsPage() {
             className="text-xs font-mono font-medium text-zinc-500 hover:text-[#65a30d] transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded-lg hover:bg-zinc-100"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to Home</span>
+            <span>{t.projects.backHome}</span>
           </Link>
         </div>
 
         {/* Overview Header */}
         <div className="p-2 md:p-4 space-y-2">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-zinc-900 leading-[0.95]">
-            Featured{" "}
-            <span className="text-[#65a30d]/80">Projects</span>
+            {language === "th" ? (
+              <>
+                ผลงาน <span className="text-[#65a30d]/80">ทั้งหมด</span>
+              </>
+            ) : (
+              <>
+                Featured <span className="text-[#65a30d]/80">Projects</span>
+              </>
+            )}
           </h1>
           <p className="text-zinc-600 text-base md:text-lg max-w-2xl font-light leading-relaxed pt-2">
-            A complete list of projects I&apos;ve worked on over the years, covering web platforms, mobile apps, and design systems.
+            {language === "th"
+              ? "รวมผลงานและระบบที่เคยพัฒนาและออกแบบ ทั้งเว็บแอปพลิเคชัน โมบายล์แอป และระบบสำหรับองค์กร"
+              : "A complete list of projects I've worked on over the years, covering web platforms, mobile apps, and design systems."}
           </p>
         </div>
 
@@ -48,15 +66,15 @@ export default function ProjectsPage() {
         <div className="flex items-center gap-2 bg-white flex-wrap p-2.5 rounded-2xl border border-zinc-200/80 shadow-2xs">
           {categories.map((cat) => (
             <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
+              key={cat.key}
+              onClick={() => setActiveFilter(cat.key)}
               className={`text-xs px-3 py-1.5 rounded-xl transition-all duration-200 cursor-pointer font-medium ${
-                activeFilter === cat
+                activeFilter === cat.key
                   ? "bg-[#65a30d]/10 text-[#65a30d] border border-[#65a30d]/20"
                   : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200/70 border border-transparent"
               }`}
             >
-              {cat}
+              {cat.label}
             </button>
           ))}
         </div>

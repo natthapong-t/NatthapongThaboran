@@ -3,22 +3,32 @@
 import React from "react";
 import { Terminal } from "lucide-react";
 import { SKILL_CATEGORIES } from "@/data/portfolio-data";
+import { useLanguage } from "@/context/LanguageContext";
+import { UI_TRANSLATIONS, SKILL_CATEGORY_NAMES_TH } from "@/data/translations";
 
 export default function StackSection() {
+  const { language } = useLanguage();
+  const t = UI_TRANSLATIONS[language];
+
   return (
     <section id="stack">
       <div className="bento-card rounded-2xl p-8 md:p-10 bg-white overflow-hidden relative">
         <h2 className="text-2xl font-bold text-zinc-900 mb-6 flex items-center gap-2">
           <Terminal className="w-6 h-6 text-[#65a30d]" />
-          <span>Skills &amp; Proficiencies</span>
+          <span>{t.stack.title}</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SKILL_CATEGORIES.map((category) => (
-            <div key={category.category} className="space-y-3">
-              <p className="text-xs font-mono text-zinc-500 uppercase tracking-wider border-b border-zinc-200 pb-2 font-semibold">
-                {category.category}
-              </p>
+          {SKILL_CATEGORIES.map((category) => {
+            const categoryTitle =
+              language === "th"
+                ? SKILL_CATEGORY_NAMES_TH[category.category] || category.category
+                : category.category;
+            return (
+              <div key={category.category} className="space-y-3">
+                <p className="text-xs font-mono text-zinc-500 uppercase tracking-wider border-b border-zinc-200 pb-2 font-semibold">
+                  {categoryTitle}
+                </p>
 
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
@@ -42,7 +52,8 @@ export default function StackSection() {
                 ))}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

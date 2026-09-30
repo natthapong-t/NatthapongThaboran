@@ -4,8 +4,10 @@ import React from "react";
 import Link from "next/link";
 import { ArrowUp, Heart } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolio-data";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { language } = useLanguage();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -36,7 +38,7 @@ export default function Footer() {
           className="flex items-center gap-1.5 text-zinc-600 hover:text-[#65a30d] transition-colors p-1.5 rounded-lg hover:bg-zinc-100 cursor-pointer"
           aria-label="Back to top"
         >
-          <span>Back to top</span>
+          <span>{language === "th" ? "กลับสู่ด้านบน" : "Back to top"}</span>
           <ArrowUp className="w-3.5 h-3.5" />
         </button>
       </div>
