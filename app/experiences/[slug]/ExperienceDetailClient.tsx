@@ -70,7 +70,7 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
         <div className="flex px-1 justify-start">
           <Link
             href="/experiences"
-            className="text-xs font-mono font-medium text-zinc-500 hover:text-[#65a30d] transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded-lg hover:bg-zinc-100"
+            className="text-xs font-mono font-medium text-zinc-500 hover:text-primary transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded-lg hover:bg-zinc-100"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>{t.experienceDetail.backToExperiences}</span>
@@ -82,13 +82,13 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
           {/* ── Left Card (8 Cols): Main Story & Key Initiatives ── */}
           <div className="lg:col-span-8 rounded-3xl border border-zinc-200/80 bg-white p-8 md:p-12 relative overflow-hidden flex flex-col justify-between shadow-2xs h-full">
             {/* Ambient background glow matching reference */}
-            <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-gradient-radial from-lime-100/40 via-lime-50/20 to-transparent pointer-events-none" />
+            <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-gradient-radial from-primary/15 via-primary/5 to-transparent pointer-events-none" />
 
             <div className="relative z-10 space-y-6">
               {/* Header Badges */}
               <div className="flex items-center flex-wrap gap-2.5">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200/80 bg-zinc-50/80 backdrop-blur-md">
-                  <span className="h-2 w-2 rounded-full bg-[#65a30d]" />
+                  <span className="h-2 w-2 rounded-full bg-primary" />
                   <span className="text-xs font-mono font-medium text-zinc-600">
                     {exp.date}
                   </span>
@@ -103,7 +103,7 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
               {/* Company Title */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 leading-[1.08]">
                 {exp.company}
-                <span className="text-[#65a30d]">.</span>
+                <span className="text-primary">.</span>
               </h1>
 
               {/* Role & Location */}
@@ -149,7 +149,7 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
             {/* Bottom Duration Pill */}
             <div className="relative z-10 mt-10 pt-4 flex">
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-200 bg-white text-xs font-mono font-medium text-zinc-800 shadow-2xs">
-                <Clock className="w-3.5 h-3.5 text-[#65a30d]" />
+                <Clock className="w-3.5 h-3.5 text-primary" />
                 <span>{getExperienceDuration(exp)}</span>
               </span>
             </div>
@@ -160,7 +160,7 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
             {/* 1. Metrics & Highlights Card (flex-1 with min-h-fit to prevent clipping) */}
             <div className="flex-1 min-h-fit rounded-3xl border border-zinc-200/80 bg-white p-7 relative overflow-hidden shadow-2xs flex flex-col justify-between">
               {/* Soft bottom-right radial glow */}
-              <div className="absolute -bottom-16 -right-16 w-52 h-52 rounded-full bg-gradient-radial from-lime-100/50 via-lime-50/20 to-transparent pointer-events-none" />
+              <div className="absolute -bottom-16 -right-16 w-52 h-52 rounded-full bg-gradient-radial from-primary/15 via-primary/5 to-transparent pointer-events-none" />
 
               {/* Logo & Verified Badge */}
               <div className="flex items-start justify-between mb-5 relative z-10">
@@ -208,10 +208,10 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
               <div>
                 {/* Header with terminal tag */}
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="px-1.5 py-0.5 rounded bg-[#65a30d]/10 text-[#65a30d] font-mono text-xs font-bold">
+                  <span className="px-1.5 py-0.5 rounded bg-primary/10 text-primary font-mono text-xs font-bold">
                     &lt;&gt;
                   </span>
-                  <span className="text-xs font-mono font-semibold text-[#65a30d]">
+                  <span className="text-xs font-mono font-semibold text-primary">
                     {t.experienceDetail.coreStack}
                   </span>
                 </div>
@@ -252,9 +252,9 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
         <section className="border-t border-zinc-200 pt-8 mt-12 flex items-center justify-between gap-4">
           <Link
             href={`/experiences/${prevExp.slug}`}
-            className="group flex flex-col items-start gap-1 p-4 rounded-xl border border-zinc-200 bg-white hover:border-[#65a30d]/50 transition-colors max-w-xs w-full shadow-2xs"
+            className="group flex flex-col items-start gap-1 p-4 rounded-xl border border-zinc-200 bg-white hover:border-primary/50 transition-colors max-w-xs w-full shadow-2xs"
           >
-            <span className="text-xs text-zinc-400 font-mono flex items-center gap-1 group-hover:text-[#65a30d]">
+            <span className="text-xs text-zinc-400 font-mono flex items-center gap-1 group-hover:text-primary">
               <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
               <span>{t.experienceDetail.prevRole}</span>
             </span>
@@ -265,9 +265,9 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
 
           <Link
             href={`/experiences/${nextExp.slug}`}
-            className="group flex flex-col items-end gap-1 p-4 rounded-xl border border-zinc-200 bg-white hover:border-[#65a30d]/50 transition-colors max-w-xs w-full text-right shadow-2xs"
+            className="group flex flex-col items-end gap-1 p-4 rounded-xl border border-zinc-200 bg-white hover:border-primary/50 transition-colors max-w-xs w-full text-right shadow-2xs"
           >
-            <span className="text-xs text-zinc-400 font-mono flex items-center gap-1 group-hover:text-[#65a30d]">
+            <span className="text-xs text-zinc-400 font-mono flex items-center gap-1 group-hover:text-primary">
               <span>{t.experienceDetail.nextRole}</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
             </span>

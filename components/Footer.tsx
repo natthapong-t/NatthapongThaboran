@@ -16,7 +16,7 @@ export default function Footer() {
     <footer className="w-full border-t border-zinc-200/80 bg-white/60 py-8 px-4 sm:px-6 lg:px-8 mt-16">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-500">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full border border-[#65a30d] p-0.5 overflow-hidden">
+          <div className="w-6 h-6 rounded-full border border-primary p-0.5 overflow-hidden">
             <img
               src={PERSONAL_INFO.avatar}
               alt={PERSONAL_INFO.name}
@@ -35,7 +35,7 @@ export default function Footer() {
 
         <button
           onClick={scrollToTop}
-          className="flex items-center gap-1.5 text-zinc-600 hover:text-[#65a30d] transition-colors p-1.5 rounded-lg hover:bg-zinc-100 cursor-pointer"
+          className="flex items-center gap-1.5 text-zinc-600 hover:text-primary transition-colors p-1.5 rounded-lg hover:bg-zinc-100 cursor-pointer"
           aria-label="Back to top"
         >
           <span>{language === "th" ? "กลับสู่ด้านบน" : "Back to top"}</span>

@@ -34,7 +34,7 @@ export default function ExperiencesPage() {
         <div className="flex px-1 justify-start">
           <Link
             href="/#work"
-            className="text-xs font-mono font-medium text-zinc-500 hover:text-[#65a30d] transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded-lg hover:bg-zinc-100"
+            className="text-xs font-mono font-medium text-zinc-500 hover:text-primary transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded-lg hover:bg-zinc-100"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>{t.projects.backHome}</span>
@@ -46,11 +46,11 @@ export default function ExperiencesPage() {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-zinc-900 leading-[0.95]">
             {language === "th" ? (
               <>
-                ประสบการณ์ <span className="text-[#65a30d]/80">การทำงาน</span>
+                ประสบการณ์ <span className="text-primary">การทำงาน</span>
               </>
             ) : (
               <>
-                Work <span className="text-[#65a30d]/80">Experience</span>
+                Work <span className="text-primary">Experience</span>
               </>
             )}
           </h1>
@@ -69,7 +69,7 @@ export default function ExperiencesPage() {
               onClick={() => setSelectedType(type.key)}
               className={`text-xs px-3 py-1.5 rounded-xl transition-all duration-200 cursor-pointer font-medium ${
                 selectedType === type.key
-                  ? "bg-[#65a30d]/10 text-[#65a30d] border border-[#65a30d]/20"
+                  ? "bg-primary/10 text-primary border border-primary/20"
                   : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200/70 border border-transparent"
               }`}
             >
@@ -98,7 +98,7 @@ export default function ExperiencesPage() {
                   <span
                     className={`text-xs font-mono px-2.5 py-1 rounded-md shrink-0 ${
                       job.isCurrent
-                        ? "bg-[#65a30d] text-white font-medium"
+                        ? "bg-primary text-white font-medium"
                         : "text-zinc-500 bg-zinc-100 border border-zinc-200"
                     }`}
                   >
@@ -106,13 +106,13 @@ export default function ExperiencesPage() {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-zinc-900 mb-1 group-hover:text-[#65a30d] transition-colors flex items-center justify-between">
+                <h3 className="text-xl font-bold text-zinc-900 mb-1 group-hover:text-primary transition-colors flex items-center justify-between">
                   <span>{job.role}</span>
-                  <ArrowUpRight className="w-5 h-5 text-zinc-400 group-hover:text-[#65a30d] transition-colors" />
+                  <ArrowUpRight className="w-5 h-5 text-zinc-400 group-hover:text-primary transition-colors" />
                 </h3>
 
                 <p className="text-sm text-zinc-500 mb-4">
-                  <span className="font-bold text-[#65a30d]">{job.company}</span> •{" "}
+                  <span className="font-bold text-primary">{job.company}</span> •{" "}
                   <span>{job.location}</span>
                 </p>
 

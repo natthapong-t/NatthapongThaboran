@@ -62,7 +62,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
         <div className="flex px-2 justify-end">
           <Link
             href="/projects"
-            className="text-sm font-medium text-zinc-800 hover:text-[#65a30d] transition-colors flex items-center gap-1.5"
+            className="text-sm font-medium text-zinc-800 hover:text-primary transition-colors flex items-center gap-1.5"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>{t.projectDetail.backToProjects}</span>
@@ -87,8 +87,8 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 leading-[1.05] flex items-baseline flex-wrap gap-3">
                 <span>{project.title}</span>
                 {project.statusBadge && (
-                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border backdrop-blur-md w-fit bg-[#65a30d]/10 border-[#65a30d]/20 text-[#65a30d] text-xs font-mono font-medium align-middle">
-                    <span className="w-2 h-2 rounded-full bg-[#65a30d]"></span>
+                  <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border backdrop-blur-md w-fit bg-primary/10 border-primary/20 text-primary text-xs font-mono font-medium align-middle">
+                    <span className="w-2 h-2 rounded-full bg-primary"></span>
                     <span>{project.statusBadge}</span>
                   </span>
                 )}
@@ -147,10 +147,10 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-between w-full py-2.5 px-3 rounded-xl bg-zinc-50 hover:bg-[#65a30d]/10 border border-zinc-200 hover:border-[#65a30d]/30 text-zinc-800 hover:text-[#65a30d] transition-all text-xs font-semibold group cursor-pointer"
+                    className="inline-flex items-center justify-between w-full py-2.5 px-3 rounded-xl bg-zinc-50 hover:bg-primary/10 border border-zinc-200 hover:border-primary/30 text-zinc-800 hover:text-primary transition-all text-xs font-semibold group cursor-pointer"
                   >
                     <span>{link.name}</span>
-                    <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform text-[#65a30d]" />
+                    <ArrowRight className="w-4 h-4 -rotate-45 group-hover:rotate-0 transition-transform text-primary" />
                   </a>
                 ))}
               </div>
@@ -174,7 +174,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/3 space-y-2">
               <h2 className="text-2xl font-bold text-zinc-900 flex items-center gap-2">
-                <Layers className="w-5 h-5 text-[#65a30d]" />
+                <Layers className="w-5 h-5 text-primary" />
                 <span>{t.projectDetail.techStack}</span>
               </h2>
               <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed font-normal">
@@ -229,7 +229,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                   <ul className="space-y-2">
                     {project.solution.map((item, i) => (
                       <li key={i} className="text-sm text-zinc-600 flex items-start gap-2">
-                        <span className="text-[#65a30d] font-bold shrink-0 mt-0.5">•</span>
+                        <span className="text-primary font-bold shrink-0 mt-0.5">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -245,7 +245,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                   <ul className="space-y-2">
                     {project.process.map((item, i) => (
                       <li key={i} className="text-sm text-zinc-600 flex items-start gap-2">
-                        <span className="text-[#65a30d] font-bold shrink-0 mt-0.5">•</span>
+                        <span className="text-primary font-bold shrink-0 mt-0.5">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -261,7 +261,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
                   <ul className="space-y-2">
                     {project.outcome.map((item, i) => (
                       <li key={i} className="text-sm text-zinc-600 flex items-start gap-2">
-                        <span className="text-[#65a30d] font-bold shrink-0 mt-0.5">•</span>
+                        <span className="text-primary font-bold shrink-0 mt-0.5">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -303,14 +303,14 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             className="bento-card p-6 rounded-2xl group flex items-center justify-between bg-white hover:bg-zinc-50 transition-colors"
           >
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 group-hover:bg-[#65a30d] group-hover:text-white transition-colors">
+              <div className="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 group-hover:bg-primary group-hover:text-white transition-colors">
                 <ArrowLeft className="w-4 h-4" />
               </div>
               <div>
                 <p className="text-xs text-zinc-400 uppercase tracking-wider font-mono">
                   {language === "th" ? "โปรเจกต์ก่อนหน้า" : "Project"}
                 </p>
-                <p className="font-bold text-zinc-900 group-hover:text-[#65a30d] transition-colors">
+                <p className="font-bold text-zinc-900 group-hover:text-primary transition-colors">
                   {prevProject.title}
                 </p>
               </div>
@@ -322,14 +322,14 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
             className="bento-card p-6 rounded-2xl group flex items-center justify-between bg-white hover:bg-zinc-50 transition-colors"
           >
             <div className="flex items-center gap-4 text-right ml-auto flex-row-reverse">
-              <div className="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 group-hover:bg-[#65a30d] group-hover:text-white transition-colors">
+              <div className="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-700 group-hover:bg-primary group-hover:text-white transition-colors">
                 <ArrowRight className="w-4 h-4" />
               </div>
               <div>
                 <p className="text-xs text-zinc-400 uppercase tracking-wider font-mono">
                   {t.projectDetail.nextProject}
                 </p>
-                <p className="font-bold text-zinc-900 group-hover:text-[#65a30d] transition-colors">
+                <p className="font-bold text-zinc-900 group-hover:text-primary transition-colors">
                   {nextProject.title}
                 </p>
               </div>

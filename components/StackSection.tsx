@@ -14,7 +14,7 @@ export default function StackSection() {
     <section id="stack">
       <div className="bento-card rounded-2xl p-8 md:p-10 bg-white overflow-hidden relative">
         <h2 className="text-2xl font-bold text-zinc-900 mb-6 flex items-center gap-2">
-          <Terminal className="w-6 h-6 text-[#65a30d]" />
+          <Terminal className="w-6 h-6 text-primary" />
           <span>{t.stack.title}</span>
         </h2>
 
@@ -34,7 +34,7 @@ export default function StackSection() {
                 {category.skills.map((skill) => (
                   <span
                     key={skill.name}
-                    className="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-default flex items-center gap-1.5 bg-zinc-50 border border-zinc-200/80 text-zinc-700 hover:border-[#65a30d]/50 hover:text-[#65a30d]"
+                    className="px-3 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-default flex items-center gap-1.5 bg-zinc-50 border border-zinc-200/80 text-zinc-700 hover:border-primary/50 hover:text-primary"
                   >
                     {skill.icon ? (
                       <img

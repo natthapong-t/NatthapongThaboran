@@ -64,7 +64,7 @@ export default function ContactSection() {
         <div className="flex flex-col justify-center space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 leading-tight tracking-tight">
             {t.contact.readyTitle} <br />
-            <span className="text-[#65a30d]">{t.contact.nextProject}</span>
+            <span className="text-primary">{t.contact.nextProject}</span>
           </h2>
           <p className="text-zinc-600 text-lg max-w-sm leading-relaxed">
             {t.contact.subtitle}
@@ -80,7 +80,7 @@ export default function ContactSection() {
                 href={item.href}
                 target={item.name === "Phone" ? undefined : "_blank"}
                 rel={item.name === "Phone" ? undefined : "noopener noreferrer"}
-                className="w-fit flex items-center gap-3 text-zinc-600 hover:text-[#65a30d] transition-colors group cursor-pointer"
+                className="w-fit flex items-center gap-3 text-zinc-600 hover:text-primary transition-colors group cursor-pointer"
               >
                 <div className="w-10 h-10 rounded-full p-2 bg-zinc-100 border border-zinc-200 overflow-hidden flex items-center justify-center transition-transform group-hover:scale-105">
                   {item.icon}

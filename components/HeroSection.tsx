@@ -18,12 +18,12 @@ export default function HeroSection() {
     >
       {/* 1. Main Hero Bento Card (lg:col-span-8, row-span-2) */}
       <div className="lg:col-span-8 row-span-2 bento-card rounded-2xl p-8 sm:p-12 flex flex-col justify-between relative overflow-hidden group bg-white">
-        <div className="absolute inset-0 bg-gradient-radial from-[#65a30d]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-radial from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
         <div className="z-10 space-y-6">
           {/* Tags */}
           <div className="flex items-center gap-2 flex-wrap">
-            <div className="inline-flex gap-2 px-3 py-1 rounded-full border backdrop-blur-md w-fit bg-[#65a30d]/10 border-[#65a30d]/20 text-[#65a30d]">
+            <div className="inline-flex gap-2 px-3 py-1 rounded-full border backdrop-blur-md w-fit bg-primary/10 border-primary/20 text-primary">
               <span className="text-xs font-mono font-medium">{t.hero.devTag}</span>
             </div>
             <div className="inline-flex gap-2 px-3 py-1 rounded-full border border-zinc-200 bg-zinc-50 backdrop-blur-md w-fit">
@@ -34,7 +34,7 @@ export default function HeroSection() {
           {/* Heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight text-zinc-900 max-w-2xl">
             {info.headlinePrefix}{" "}
-            <span className="text-[#65a30d]/90">{info.headlineAccent}</span>
+            <span className="text-primary">{info.headlineAccent}</span>
           </h1>
 
           {/* Short Bio directly reflecting CV */}
@@ -49,7 +49,7 @@ export default function HeroSection() {
             href={info.fastworkUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-xl bg-[#65a30d] px-8 font-medium text-white transition-all duration-300 hover:bg-zinc-900 shadow-xs cursor-pointer"
+            className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-xl bg-primary px-8 font-medium text-white transition-all duration-300 hover:bg-primary-hover shadow-xs cursor-pointer"
           >
             <span className="mr-2">{t.hero.hireCta}</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -64,7 +64,7 @@ export default function HeroSection() {
         </div>
 
         {/* Ambient radial blur */}
-        <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-[#65a30d]/15 rounded-full blur-[80px] pointer-events-none"></div>
+        <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-primary/15 rounded-full blur-[80px] pointer-events-none"></div>
       </div>
 
       {/* 2. Profile Bento Card (lg:col-span-4) */}
@@ -76,7 +76,7 @@ export default function HeroSection() {
         </div>
 
         <div className="mt-4 flex flex-col items-center justify-center text-center">
-          <div className="w-32 h-32 rounded-full border-2 border-[#65a30d]/50 p-1 mb-3 shadow-xs bg-white">
+          <div className="w-32 h-32 rounded-full border-2 border-primary/40 p-1 mb-3 shadow-xs bg-white">
             <img
               src={info.avatar}
               alt={info.name}
@@ -100,7 +100,7 @@ export default function HeroSection() {
 
       {/* 3. Impact / Stats Bento Card (lg:col-span-4) */}
       <div className="lg:col-span-4 bento-card rounded-2xl p-6 flex flex-col justify-between bg-white">
-        <div className="flex items-center gap-2 mb-4 text-[#65a30d]">
+        <div className="flex items-center gap-2 mb-4 text-primary">
           <Database className="w-4 h-4" />
           <span className="text-xs font-mono uppercase tracking-wider font-semibold">
             {t.hero.trackRecord}
@@ -112,7 +112,7 @@ export default function HeroSection() {
             <div key={idx}>
               <p
                 className={`text-3xl font-bold ${
-                  stat.highlight ? "text-[#65a30d]" : "text-zinc-900"
+                  stat.highlight ? "text-primary" : "text-zinc-900"
                 }`}
               >
                 {stat.value}

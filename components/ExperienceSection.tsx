@@ -56,7 +56,7 @@ export default function ExperienceSection() {
           <p className="text-zinc-500 text-sm mt-1">
             {t.work.subtitle}{" "}
             <span className="font-bold">
-              <Link href="/experiences" className="text-[#65a30d] hover:underline ml-1">
+              <Link href="/experiences" className="text-primary hover:underline ml-1">
                 {t.work.viewAll}
               </Link>
             </span>
@@ -109,7 +109,7 @@ export default function ExperienceSection() {
                   <span
                     className={`text-xs font-mono px-2.5 py-1 rounded-md shrink-0 ${
                       job.isCurrent
-                        ? "bg-[#65a30d] text-white font-medium"
+                        ? "bg-primary text-white font-medium"
                         : "text-zinc-500 bg-zinc-100 border border-zinc-200"
                     }`}
                   >
@@ -117,13 +117,13 @@ export default function ExperienceSection() {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-zinc-900 mb-1 group-hover:text-[#65a30d] transition-colors flex items-start justify-between gap-2">
+                <h3 className="text-xl font-bold text-zinc-900 mb-1 group-hover:text-primary transition-colors flex items-start justify-between gap-2">
                   <span className="break-words min-w-0">{job.role}</span>
-                  <ArrowUpRight className="w-5 h-5 text-zinc-400 group-hover:text-[#65a30d] transition-colors shrink-0 mt-0.5" />
+                  <ArrowUpRight className="w-5 h-5 text-zinc-400 group-hover:text-primary transition-colors shrink-0 mt-0.5" />
                 </h3>
 
                 <p className="text-sm text-zinc-500 mb-4 break-words">
-                  <span className="font-bold text-[#65a30d]">{job.company}</span> •{" "}
+                  <span className="font-bold text-primary">{job.company}</span> •{" "}
                   <span>{job.location}</span>
                 </p>
 

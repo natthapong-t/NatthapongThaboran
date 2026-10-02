@@ -35,7 +35,7 @@ export default function ProjectsPage() {
         <div className="flex px-1 justify-start">
           <Link
             href="/#projects"
-            className="text-xs font-mono font-medium text-zinc-500 hover:text-[#65a30d] transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded-lg hover:bg-zinc-100"
+            className="text-xs font-mono font-medium text-zinc-500 hover:text-primary transition-colors flex items-center gap-1.5 py-1 px-2.5 rounded-lg hover:bg-zinc-100"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>{t.projects.backHome}</span>
@@ -47,11 +47,11 @@ export default function ProjectsPage() {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-zinc-900 leading-[0.95]">
             {language === "th" ? (
               <>
-                ผลงาน <span className="text-[#65a30d]/80">ทั้งหมด</span>
+                ผลงาน <span className="text-primary">ทั้งหมด</span>
               </>
             ) : (
               <>
-                Featured <span className="text-[#65a30d]/80">Projects</span>
+                Featured <span className="text-primary">Projects</span>
               </>
             )}
           </h1>
@@ -70,7 +70,7 @@ export default function ProjectsPage() {
               onClick={() => setActiveFilter(cat.key)}
               className={`text-xs px-3 py-1.5 rounded-xl transition-all duration-200 cursor-pointer font-medium ${
                 activeFilter === cat.key
-                  ? "bg-[#65a30d]/10 text-[#65a30d] border border-[#65a30d]/20"
+                  ? "bg-primary/10 text-primary border border-primary/20"
                   : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200/70 border border-transparent"
               }`}
             >
@@ -99,13 +99,13 @@ export default function ProjectsPage() {
               </div>
 
               {/* Top-right open icon */}
-              <span className="text-zinc-400 group-hover:text-[#65a30d] transition-colors shrink-0 absolute top-6 right-6">
+              <span className="text-zinc-400 group-hover:text-primary transition-colors shrink-0 absolute top-6 right-6">
                 <ArrowUpRight className="w-5 h-5" />
               </span>
 
               {/* Title */}
               <div className="flex items-start justify-between gap-4 mt-4 mb-2">
-                <h3 className="text-2xl font-bold text-zinc-900 group-hover:text-[#65a30d] transition-colors">
+                <h3 className="text-2xl font-bold text-zinc-900 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
               </div>
@@ -119,9 +119,9 @@ export default function ProjectsPage() {
               <div className="mt-auto pt-4 border-t border-zinc-100">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3 w-full">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border backdrop-blur-md w-fit bg-[#65a30d]/10 border-[#65a30d]/20">
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-[#65a30d]"></span>
-                      <span className="text-xs font-mono font-medium text-[#65a30d]">
+                    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border backdrop-blur-md w-fit bg-primary/10 border-primary/20">
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                      <span className="text-xs font-mono font-medium text-primary">
                         {project.statusBadge || "Live"}
                       </span>
                     </span>

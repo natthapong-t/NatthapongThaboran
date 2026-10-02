@@ -1,10 +1,20 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   🎨 THEME CONFIGURATION / จุดตั้งค่าสีธีมของทั้งเว็บไซต์ (เปลี่ยนที่นี่ที่เดียว)
+   - --color-primary: สีหลักของเว็บ เช่น สีกรมท่า #1e3a8a
+   - --color-primary-hover: สีตอนเมาส์ชี้ (Hover) เช่น สีเข้มขึ้น #172554
+   ========================================================================== */
+@theme {
+  --color-primary: #1e3a8a;
+  --color-primary-hover: #172554;
+}
+
 :root {
-  --primary: #65a30d;
-  --primary-hover: #52840a;
-  --primary-light: rgba(101, 163, 13, 0.1);
-  --primary-border: rgba(101, 163, 13, 0.2);
+  --primary: var(--color-primary);
+  --primary-hover: var(--color-primary-hover);
+  --primary-light: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  --primary-border: color-mix(in srgb, var(--color-primary) 20%, transparent);
   
   --background: #fbfbfb;
   --foreground: #18181b;

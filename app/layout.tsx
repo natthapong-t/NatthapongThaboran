@@ -68,7 +68,7 @@ export default function RootLayout({
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} ${notoSansThai.variable} scroll-smooth`}
     >
-      <body className="min-h-screen flex flex-col antialiased selection:bg-[#65a30d] selection:text-white">
+      <body className="min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

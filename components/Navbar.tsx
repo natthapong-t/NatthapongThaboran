@@ -39,7 +39,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand / Logo */}
         <Link href="/" className="flex items-center gap-2.5 group cursor-pointer">
-          <div className="w-8 h-8 rounded-full border border-[#65a30d] p-0.5 overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
+          <div className="w-8 h-8 rounded-full border border-primary p-0.5 overflow-hidden transition-transform duration-300 group-hover:scale-105 shrink-0">
             <img
               src={PERSONAL_INFO.avatar}
               alt={PERSONAL_INFO.name}
@@ -60,7 +60,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-zinc-600 hover:text-[#65a30d] transition-colors"
+              className="text-sm font-medium text-zinc-600 hover:text-primary transition-colors"
             >
               {link.name}
             </Link>
@@ -100,7 +100,7 @@ export default function Navbar() {
             href={PERSONAL_INFO.fastworkUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-[#65a30d] hover:bg-[#52840a] text-white font-bold text-xs sm:text-sm px-3.5 sm:px-5 py-2 rounded-xl transition-colors shadow-2xs cursor-pointer inline-flex items-center gap-1.5"
+            className="bg-primary hover:bg-primary-hover text-white font-bold text-xs sm:text-sm px-3.5 sm:px-5 py-2 rounded-xl transition-colors shadow-2xs cursor-pointer inline-flex items-center gap-1.5"
           >
             <span>{t.nav.hire}</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -125,7 +125,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-between text-base font-medium text-zinc-700 hover:text-[#65a30d] py-2 border-b border-zinc-100 last:border-none"
+              className="flex items-center justify-between text-base font-medium text-zinc-700 hover:text-primary py-2 border-b border-zinc-100 last:border-none"
             >
               <span>{link.name}</span>
               <ChevronRight className="w-4 h-4 text-zinc-400" />
@@ -163,7 +163,7 @@ export default function Navbar() {
             href={PERSONAL_INFO.fastworkUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 text-center bg-[#65a30d] hover:bg-[#52840a] text-white font-bold py-2.5 rounded-xl transition-colors text-sm"
+            className="mt-2 text-center bg-primary hover:bg-primary-hover text-white font-bold py-2.5 rounded-xl transition-colors text-sm"
           >
             {t.nav.hire}
           </a>
