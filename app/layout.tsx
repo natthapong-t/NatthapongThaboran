@@ -57,6 +57,11 @@ export const metadata: Metadata = {
 };
 
 import { LanguageProvider } from "@/context/LanguageContext";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
+const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-QN5T5J1VK7";
 
 export default function RootLayout({
   children,
@@ -70,6 +75,9 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col antialiased selection:bg-primary selection:text-white">
         <LanguageProvider>{children}</LanguageProvider>
+        <Analytics />
+        <SpeedInsights />
+        {gaId && <GoogleAnalytics gaId={gaId} />}
       </body>
     </html>
   );
