@@ -45,6 +45,17 @@ const SKILL_ICONS: Record<string, string> = {
   "A/B Testing": "https://cdn.simpleicons.org/postman/FF6C37",
 };
 
+const METRIC_LABELS_TH: Record<string, string> = {
+  "EMPLOYEES SERVED": "จำนวนผู้ใช้งานในองค์กร",
+  "COMPLETED ORDERS": "งานที่ส่งมอบสำเร็จ",
+  "CLIENT RATING (13 REVIEWS)": "คะแนนรีวิวจากลูกค้า (13 รีวิว)",
+  "TOTAL CLIENTS": "ลูกค้าทั้งหมด",
+  "DELIVERABLES": "ผลงานที่ส่งมอบ",
+  "DURATION": "ระยะเวลาการทำงาน",
+  "FEATURES DESIGNED": "ฟีเจอร์ที่ออกแบบ",
+  "KEY DELIVERABLES": "ผลงานสำคัญ",
+};
+
 export default function ExperienceDetailClient({ slug }: { slug: string }) {
   const { language } = useLanguage();
   const exp = getLocalizedExperience(slug, language);
@@ -60,6 +71,20 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
     allExperiences[(currentIndex + 1) % allExperiences.length];
   const prevExp =
     allExperiences[(currentIndex - 1 + allExperiences.length) % allExperiences.length];
+
+  const localizedJobType =
+    language === "th"
+      ? exp.jobType === "Full-time"
+        ? "งานประจำ"
+        : exp.jobType === "Freelance"
+        ? "ฟรีแลนซ์"
+        : exp.jobType
+      : exp.jobType;
+
+  const localizedDate =
+    language === "th"
+      ? exp.date.replace(/Present/gi, "ปัจจุบัน")
+      : exp.date;
 
   return (
     <div className="relative min-h-screen flex flex-col font-sans overflow-x-hidden bg-[#fbfbfb]">
@@ -90,12 +115,12 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200/80 bg-zinc-50/80 backdrop-blur-md">
                   <span className="h-2 w-2 rounded-full bg-primary" />
                   <span className="text-xs font-mono font-medium text-zinc-600">
-                    {exp.date}
+                    {localizedDate}
                   </span>
                 </span>
                 <span className="inline-flex items-center px-3 py-1 rounded-full border border-zinc-200/80 bg-zinc-50/80 backdrop-blur-md">
                   <span className="text-xs font-mono font-medium text-zinc-600">
-                    {exp.jobType}
+                    {localizedJobType}
                   </span>
                 </span>
               </div>
@@ -150,7 +175,7 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
             <div className="relative z-10 mt-10 pt-4 flex">
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-zinc-200 bg-white text-xs font-mono font-medium text-zinc-800 shadow-2xs">
                 <Clock className="w-3.5 h-3.5 text-primary" />
-                <span>{getExperienceDuration(exp)}</span>
+                <span>{getExperienceDuration(exp, language)}</span>
               </span>
             </div>
           </div>
@@ -187,19 +212,33 @@ export default function ExperienceDetailClient({ slug }: { slug: string }) {
                   : [
                       { value: exp.projectsCount || "02", label: "KEY DELIVERABLES" },
                     ]
-                ).map((m, idx, arr) => (
-                  <div
-                    key={idx}
-                    className={idx === 0 ? "pb-3" : idx === arr.length - 1 ? "pt-3" : "py-3"}
-                  >
-                    <p className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight leading-none mb-1">
-                      {m.value}
-                    </p>
-                    <p className="text-[10px] font-mono tracking-wider text-zinc-400 uppercase">
-                      {m.label}
-                    </p>
-                  </div>
-                ))}
+                ).map((m, idx, arr) => {
+                  const localizedMetricValue =
+                    language === "th"
+                      ? m.value
+                          .replace(/Months/gi, "เดือน")
+                          .replace(/Month/gi, "เดือน")
+                          .replace(/Years/gi, "ปี")
+                          .replace(/Year/gi, "ปี")
+                      : m.value;
+                  const localizedMetricLabel =
+                    language === "th"
+                      ? METRIC_LABELS_TH[m.label] || m.label
+                      : m.label;
+                  return (
+                    <div
+                      key={idx}
+                      className={idx === 0 ? "pb-3" : idx === arr.length - 1 ? "pt-3" : "py-3"}
+                    >
+                      <p className="text-2xl sm:text-3xl font-bold text-zinc-900 tracking-tight leading-none mb-1">
+                        {localizedMetricValue}
+                      </p>
+                      <p className="text-[10px] font-mono tracking-wider text-zinc-400 uppercase">
+                        {localizedMetricLabel}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 

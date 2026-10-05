@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/context/LanguageContext";
+import { PROJECTS } from "@/data/portfolio-data";
 import { getLocalizedProjects, UI_TRANSLATIONS } from "@/data/translations";
 
 export default function ProjectsPage() {
@@ -24,7 +25,10 @@ export default function ProjectsPage() {
   const filteredProjects =
     activeFilter === "All"
       ? projects
-      : projects.filter((p) => p.category === activeFilter);
+      : projects.filter((p) => {
+          const orig = PROJECTS.find((item) => item.slug === p.slug);
+          return (orig ? orig.category : p.category) === activeFilter;
+        });
 
   return (
     <div className="relative min-h-screen flex flex-col font-sans overflow-x-hidden bg-[#fbfbfb]">
@@ -57,7 +61,7 @@ export default function ProjectsPage() {
           </h1>
           <p className="text-zinc-600 text-base md:text-lg max-w-2xl font-light leading-relaxed pt-2">
             {language === "th"
-              ? "รวมผลงานและระบบที่เคยพัฒนาและออกแบบ ทั้งเว็บแอปพลิเคชัน โมบายล์แอป และระบบสำหรับองค์กร"
+              ? "รวมผลงานและระบบที่เคยพัฒนาและออกแบบ ทั้งเว็บแอปพลิเคชัน แอปพลิเคชันมือถือ และระบบสำหรับองค์กร"
               : "A complete list of projects I've worked on over the years, covering web platforms, mobile apps, and design systems."}
           </p>
         </div>
@@ -122,7 +126,7 @@ export default function ProjectsPage() {
                     <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border backdrop-blur-md w-fit bg-primary/10 border-primary/20">
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                       <span className="text-xs font-mono font-medium text-primary">
-                        {project.statusBadge || "Live"}
+                        {project.statusBadge || (language === "th" ? "ใช้งานจริง" : "Live")}
                       </span>
                     </span>
 

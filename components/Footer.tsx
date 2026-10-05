@@ -5,9 +5,11 @@ import Link from "next/link";
 import { ArrowUp, Heart } from "lucide-react";
 import { PERSONAL_INFO } from "@/data/portfolio-data";
 import { useLanguage } from "@/context/LanguageContext";
+import { getLocalizedPersonalInfo } from "@/data/translations";
 
 export default function Footer() {
   const { language } = useLanguage();
+  const info = getLocalizedPersonalInfo(language);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -19,12 +21,12 @@ export default function Footer() {
           <div className="w-6 h-6 rounded-full border border-primary p-0.5 overflow-hidden">
             <img
               src={PERSONAL_INFO.avatar}
-              alt={PERSONAL_INFO.name}
+              alt={info.name}
               className="w-full h-full object-cover rounded-full"
             />
           </div>
           <span className="font-semibold text-zinc-800">
-            {PERSONAL_INFO.name}
+            {info.name}
           </span>
           <span>© {new Date().getFullYear()}</span>
         </div>

@@ -308,7 +308,7 @@ export default function ProjectDetailClient({ slug }: { slug: string }) {
               </div>
               <div>
                 <p className="text-xs text-zinc-400 uppercase tracking-wider font-mono">
-                  {language === "th" ? "โปรเจกต์ก่อนหน้า" : "Project"}
+                  {t.projectDetail.prevProject}
                 </p>
                 <p className="font-bold text-zinc-900 group-hover:text-primary transition-colors">
                   {prevProject.title}

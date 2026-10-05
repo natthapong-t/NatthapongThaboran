@@ -58,6 +58,7 @@ export const UI_TRANSLATIONS = {
       processTitle: "Execution & Process",
       outcomeTitle: "Tangible Impact & Outcomes",
       visualsTitle: "Project Visuals",
+      prevProject: "Previous Project",
       nextProject: "Next Project",
       notice: "Notice:",
     },
@@ -140,6 +141,7 @@ export const UI_TRANSLATIONS = {
       processTitle: "ขั้นตอนการดำเนินงาน (Execution & Process)",
       outcomeTitle: "ผลลัพธ์และความสำเร็จที่วัดผลได้ (Outcomes)",
       visualsTitle: "ภาพตัวอย่างระบบ (Project Visuals)",
+      prevProject: "โปรเจกต์ก่อนหน้า",
       nextProject: "โปรเจกต์ถัดไป",
       notice: "ข้อชี้แจง:",
     },
@@ -171,7 +173,7 @@ export const UI_TRANSLATIONS = {
 
 export const PERSONAL_INFO_TH = {
   ...PERSONAL_INFO,
-  name: "ณัฐพงษ์ ทะโบราณ",
+  name: "ณัฐพงษ์ ทาโบราณ",
   role: "Software Developer & UX/UI Designer",
   headlinePrefix: "ผสานศาสตร์การดีไซน์ &",
   headlineAccent: "วิศวกรรมซอฟต์แวร์",
@@ -188,7 +190,7 @@ export const SKILL_CATEGORY_NAMES_TH: Record<string, string> = {
   "Design": "การออกแบบ (UX/UI Design)",
   "Backend & Database": "แบ็กเอนด์ & ฐานข้อมูล (Backend & DB)",
   "Mobile": "โมบายแอปพลิเคชัน (Mobile App)",
-  "Tools & Deployment": "เครื่องมือ & การติดตั้ง (Tools & DevOps)",
+  "Tools & Deployment": "เครื่องมือ & การขึ้นระบบ (Tools & DevOps)",
 };
 
 export const PROJECTS_TH: Record<string, Partial<Project>> = {

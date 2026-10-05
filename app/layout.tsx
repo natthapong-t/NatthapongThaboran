@@ -32,6 +32,7 @@ export const metadata: Metadata = {
     "Portfolio of Natthapong Thaboran (Ton) - Software Developer & UX/UI Designer based in Bangkok, Thailand. Crafting clean, usable digital experiences with Next.js, React, Flutter, and Figma.",
   keywords: [
     "Natthapong Thaboran",
+    "ณัฐพงษ์ ทาโบราณ",
     "Frontend Developer",
     "Software Developer",
     "UX/UI Designer",

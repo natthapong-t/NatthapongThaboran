@@ -63,10 +63,21 @@ export function parseDateString(dateStr: string): Date | null {
  * - 16 -> "1 Year 4 Months"
  * - 33 -> "2 Years 9 Months"
  */
-export function formatDurationMonths(totalMonths: number): string {
-  if (totalMonths <= 0) return "1 Month";
+export function formatDurationMonths(
+  totalMonths: number,
+  lang: "en" | "th" = "en"
+): string {
+  if (totalMonths <= 0) return lang === "th" ? "1 เดือน" : "1 Month";
   const years = Math.floor(totalMonths / 12);
   const months = totalMonths % 12;
+
+  if (lang === "th") {
+    const yearPart = years > 0 ? `${years} ปี` : "";
+    const monthPart = months > 0 ? `${months} เดือน` : "";
+    if (yearPart && monthPart) return `${yearPart} ${monthPart}`;
+    if (yearPart) return yearPart;
+    return monthPart || "1 เดือน";
+  }
 
   const yearPart =
     years > 0 ? `${years} ${years === 1 ? "Year" : "Years"}` : "";
@@ -77,6 +88,12 @@ export function formatDurationMonths(totalMonths: number): string {
   if (yearPart) return yearPart;
   return monthPart || "1 Month";
 }
+
+const STATIC_DURATIONS_TH: Record<string, string> = {
+  "1 Year 8 Months": "1 ปี 8 เดือน",
+  "9 Months": "9 เดือน",
+  "8 Months (Intern & Co-Op)": "8 เดือน (ฝึกงาน & สหกิจ)",
+};
 
 /**
  * Calculates total elapsed months between start date and end date (inclusive of current month).
@@ -99,6 +116,7 @@ export function calculateElapsedMonths(
  */
 export function getExperienceDuration(
   exp: JobExperience,
+  lang: "en" | "th" = "en",
   referenceDate: Date = new Date()
 ): string {
   const isOngoing =
@@ -113,14 +131,21 @@ export function getExperienceDuration(
       const startDate = parseDateString(startStr);
       if (startDate) {
         const totalMonths = calculateElapsedMonths(startDate, referenceDate);
-        return formatDurationMonths(totalMonths);
+        return formatDurationMonths(totalMonths, lang);
       }
     }
   }
 
   // For past roles with explicit duration
   if (exp.duration && exp.duration.toLowerCase() !== "present") {
+    if (lang === "th" && STATIC_DURATIONS_TH[exp.duration]) {
+      return STATIC_DURATIONS_TH[exp.duration];
+    }
     return exp.duration;
+  }
+
+  if (lang === "th" && exp.duration?.toLowerCase() === "present") {
+    return "ปัจจุบัน";
   }
 
   return exp.duration || exp.date;
